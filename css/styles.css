@@ -1,0 +1,366 @@
+@charset "UTF-8";
+/* Null-settings*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+body {
+  background-image: url(/source/img/background.jpg);
+}
+
+.input_list_wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-flow: 0;
+      flex-flow: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  top: 330px;
+  left: 31%;
+}
+
+.input_list_wrapper #input {
+  height: 50px;
+  width: 700px;
+  border: solid 1px darkmagenta;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+}
+
+.input_list_wrapper #mark-all {
+  display: none;
+}
+
+.input_list_wrapper #label-mark-all::before {
+  z-index: 10;
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  color: black;
+  content: "❯";
+  font-size: 22px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  top: 20px;
+  left: 5px;
+  opacity: 0.5;
+}
+
+.input_list_wrapper #mark-all:checked + #label-mark-all::before {
+  opacity: 1;
+}
+
+.input_list_wrapper .task_list_footer_wrapper {
+  display: none;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: 700px;
+  background-color: darkturquoise;
+  border: solid 1px darkmagenta;
+  border-radius: 10px;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: 700px;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .taskname {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list div.completed {
+  opacity: 0.8;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list div.completed div.taskname {
+  text-decoration: line-through;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task {
+  position: relative;
+  width: 700px;
+  z-index: 1;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 50px;
+  background-color: aliceblue;
+  border: solid 1px darkmagenta;
+  border-radius: 10px;
+  line-height: 50px;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task div {
+  position: absolute;
+  left: 29px;
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .checkbox {
+  position: relative;
+  vertical-align: middle;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .checkbox .checkbox_input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .checkbox .checkbox_input:checked + .checkbox_label {
+  background-color: black;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .checkbox .checkbox_label {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border: solid gray 2px;
+  border-radius: 50%;
+  top: 15px;
+  left: -24px;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .close {
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 4px solid #e62f57;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .close:before {
+  position: relative;
+  top: -5px;
+  left: 0px;
+  width: 26px;
+  height: 4px;
+  font-size: 25px;
+  background: rgba(0, 0, 0, 0);
+  content: "×";
+}
+
+.input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .close:hover {
+  background-color: yellow;
+  border: 4px solid darkblue;
+  color: black;
+  opacity: 1;
+}
+
+.input_list_wrapper .task_list_footer_wrapper #footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.input_list_wrapper .task_list_footer_wrapper #footer .but-wrapper {
+  position: relative;
+  left: 150px;
+}
+
+.input_list_wrapper .task_list_footer_wrapper #footer .but-wrapper .buttons {
+  padding: 5px;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 27px;
+  margin: 10px 20px;
+  color: floralwhite;
+  background-color: #a1df2e;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: x-large;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+.input_list_wrapper .task_list_footer_wrapper #footer .but-wrapper .buttons .btn-name {
+  top: -5px;
+  position: relative;
+  text-shadow: 1px 1px black;
+}
+
+.input_list_wrapper .task_list_footer_wrapper #footer .counter {
+  position: relative;
+  right: 75%;
+  top: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: x-large;
+}
+
+@media (max-width: 1170px) {
+  .input_list_wrapper {
+    top: 35%;
+    left: 24%;
+  }
+}
+
+@media (max-width: 970px) {
+  .input_list_wrapper {
+    left: 15%;
+  }
+}
+
+@media (max-width: 750px) {
+  .input_list_wrapper {
+    left: 1%;
+    top: 2%;
+  }
+  .input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task {
+    height: 100px;
+  }
+  .input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .close {
+    top: 20px;
+    width: 60px;
+    height: 60px;
+  }
+  .input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .checkbox .checkbox_label {
+    top: 29px;
+    width: 40px;
+    height: 40px;
+  }
+  .input_list_wrapper .task_list_footer_wrapper .task-list .task-list-task .taskname {
+    font-size: 60px;
+    left: 50px;
+    top: 20px;
+  }
+  .input_list_wrapper #input {
+    height: 100px;
+    font-size: 60px;
+  }
+}

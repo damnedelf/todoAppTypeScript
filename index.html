@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Todo Test block 2</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="input_list_wrapper">
+      <input type="text" id="input" />
+      <input type="checkbox" id="mark-all" />
+      <label for="mark-all" id="label-mark-all"></label>
+      <div class="task_list_footer_wrapper">
+        <div class="task-list"></div>
+        <div id="footer">
+          <div class="counter">x</div>
+          <div class="but-wrapper">
+            <div id="all" class="buttons"><div class="btn-name">All</div></div>
+            <div id="completed" class="buttons">
+              <div class="btn-name">Completed</div>
+            </div>
+            <div id="active" class="buttons">
+              <div class="btn-name">Active</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/Store.js"></script>
+    <script src="src/SingletonArray.js"></script>
+    <script src="src/Events.js"></script>
+    <script src="src/todoModel.js"></script>
+    <script src="src/Template.js"></script>
+    <script src="src/View.js"></script>
+    <script src="src/controller.js"></script>
+  </body>
+</html>

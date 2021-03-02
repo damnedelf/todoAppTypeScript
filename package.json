@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "name": "todoapp_ls_express",
+  "description": "todoapp local storage+express",
+  "version": "1.0.0",
+  "main": "back/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node back/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damnedelf/todoAppTypeScript.git"
+  },
+  "author": "damnedelf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damnedelf/todoAppTypeScript/issues"
+  },
+  "homepage": "https://github.com/damnedelf/todoAppTypeScript#readme"
+}

@@ -1,35 +1,42 @@
 "use strict";
-//check if any data in local
-let data = Store.get();
-if (data && data !== '[]') {
-    let todosArray = JSON.parse(data);
-    todos.setTodos(todosArray);
-    View.printTodos();
-    View.filter(Store.getFilterStatus());
+function buildDom(callback) {
+    StoreTodos.getAll(View.printTodos);
+    setTimeout(() => {
+        callback(StoreFilterStatus.getFilterStatus());
+    }, 2000);
 }
+buildDom(View.filter);
+// async function foo() {
+//   await StoreTodos.getAll(View.printTodos);
+// }
+// foo().then(() => View.filter(StoreFilterStatus.getFilterStatus()));
+// document.addEventListener("DOMContentLoaded", function () {
+//   View.filter(StoreFilterStatus.getFilterStatus());
+// });
+// window.onload = View.filter(StoreFilterStatus.getFilterStatus());
 emitter.subscribe(`event:onEnter`, function (name) {
     let todo = new TodoModel(name);
     View.printTodo(todo);
-    Store.post(todos.getTodos());
+    StoreTodos.post(todo);
 });
-emitter.subscribe('event:Delete', function (id) {
+emitter.subscribe("event:Delete", function (id) {
     View.delete(id);
-    Store.post(todos.getTodos());
+    StoreTodos.delete(id);
 });
-emitter.subscribe('event:Mark', function (id) {
+emitter.subscribe("event:Mark", function (id) {
     View.mark(id);
-    Store.post(todos.getTodos());
+    StoreTodos.update(id);
 });
-emitter.subscribe('event:MarkAll', function (condition) {
+emitter.subscribe("event:MarkAll", function (condition) {
     View.markAll(condition);
-    Store.post(todos.getTodos());
+    StoreTodos.updateAll(condition);
 });
-emitter.subscribe('filter:all', function (filterCondition) {
+emitter.subscribe("filter:all", function (filterCondition) {
     View.filter(filterCondition);
 });
-emitter.subscribe('filter:completed', function (filterCondition) {
+emitter.subscribe("filter:completed", function (filterCondition) {
     View.filter(filterCondition);
 });
-emitter.subscribe('filter:active', function (filterCondition) {
+emitter.subscribe("filter:active", function (filterCondition) {
     View.filter(filterCondition);
 });

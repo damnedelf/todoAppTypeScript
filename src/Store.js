@@ -23,18 +23,21 @@ class StoreTodos {
         }
         postTodo().catch((error) => console.log(error));
     }
-    static getAll(callback) {
-        let todoArray = [];
-        function getall() {
-            return __awaiter(this, void 0, void 0, function* () {
-                let snapshot = yield todosRef.get();
-                snapshot.forEach((doc) => {
-                    todoArray.push(doc.data());
+    static getAll() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let todoArray = [];
+            function getallHandler() {
+                return __awaiter(this, void 0, void 0, function* () {
+                    let snapshot = yield todosRef.get();
+                    yield snapshot.forEach((doc) => {
+                        todoArray.push(doc.data());
+                    });
                 });
-                callback(todoArray);
-            });
-        }
-        getall().catch((error) => console.log(error));
+            }
+            yield getallHandler();
+            console.log(todoArray);
+            return todoArray;
+        });
     }
     static delete(id) {
         function deleteTodo() {

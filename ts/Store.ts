@@ -13,16 +13,18 @@ class StoreTodos {
     }
     postTodo().catch((error) => console.log(error));
   }
-  static getAll(callback: Function): any {
-    let todoArray: todoObj[] = [];
-    async function getall() {
+  static async getAll() {
+    let todoArray: any[] = [];
+
+    async function getallHandler() {
       let snapshot = await todosRef.get();
-      snapshot.forEach((doc: any) => {
+      await snapshot.forEach((doc: any) => {
         todoArray.push(doc.data());
       });
-      callback(todoArray);
     }
-    getall().catch((error) => console.log(error));
+    await getallHandler();
+    console.log(todoArray);
+    return todoArray;
   }
 
   static delete(id: string) {

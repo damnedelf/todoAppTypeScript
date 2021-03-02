@@ -1,19 +1,6 @@
-function buildDom(callback: Function) {
-  StoreTodos.getAll(View.printTodos);
-  setTimeout(() => {
-    callback(StoreFilterStatus.getFilterStatus());
-  }, 2000);
-}
-buildDom(View.filter);
-// async function foo() {
-//   await StoreTodos.getAll(View.printTodos);
-// }
-// foo().then(() => View.filter(StoreFilterStatus.getFilterStatus()));
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   View.filter(StoreFilterStatus.getFilterStatus());
-// });
-// window.onload = View.filter(StoreFilterStatus.getFilterStatus());
+StoreTodos.getAll()
+  .then((result) => View.printTodos(result))
+  .then(() => View.filter(StoreFilterStatus.getFilterStatus()));
 
 emitter.subscribe(`event:onEnter`, function (name: string) {
   let todo = new TodoModel(name);
@@ -33,12 +20,12 @@ emitter.subscribe("event:MarkAll", function (condition: boolean) {
   View.markAll(condition);
   StoreTodos.updateAll(condition);
 });
-emitter.subscribe("filter:all", function (filterCondition: string) {
-  View.filter(filterCondition);
-});
-emitter.subscribe("filter:completed", function (filterCondition: string) {
-  View.filter(filterCondition);
-});
-emitter.subscribe("filter:active", function (filterCondition: string) {
-  View.filter(filterCondition);
-});
+//?
+function emitFilterHandler(status: string) {
+  emitter.subscribe(status, function (filterCondition: string) {
+    View.filter(filterCondition);
+  });
+}
+emitFilterHandler("filter:all");
+emitFilterHandler("filter:completed");
+emitFilterHandler("filter:active");

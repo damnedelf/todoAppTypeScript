@@ -1,3 +1,4 @@
+const db = (window as any).__INITIAL_DATA__;
 const todosRef = db.collection("todos");
 
 class StoreTodos {
@@ -14,7 +15,7 @@ class StoreTodos {
     postTodo().catch((error) => console.log(error));
   }
   static async getAll() {
-    let todoArray: any[] = [];
+    let todoArray: todoObj[] = [];
 
     async function getallHandler() {
       let snapshot = await todosRef.get();
@@ -53,6 +54,7 @@ class StoreTodos {
         .collection("todos")
         .get()
         .then(function (querySnapshot: any) {
+          console.log(querySnapshot);
           querySnapshot.forEach(function (doc: any) {
             doc.ref.update({
               isCompleted: status,

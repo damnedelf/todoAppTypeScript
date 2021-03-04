@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const db = window.__INITIAL_DATA__;
 const todosRef = db.collection("todos");
 class StoreTodos {
     constructor() { }
@@ -69,6 +70,7 @@ class StoreTodos {
                     .collection("todos")
                     .get()
                     .then(function (querySnapshot) {
+                    console.log(querySnapshot);
                     querySnapshot.forEach(function (doc) {
                         doc.ref.update({
                             isCompleted: status,

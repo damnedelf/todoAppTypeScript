@@ -51,7 +51,7 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
+      window.__INITIAL_DATA__ = firebase.firestore();
     </script>
 
     <script src="src/Store.js"></script>

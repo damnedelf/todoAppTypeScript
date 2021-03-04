@@ -68,8 +68,12 @@ body {
           text-decoration: line-through;
         }
       }
-
+      .over {
+        transform: scale(1.1, 1.1);
+      }
       .task-list-task {
+        cursor: move;
+        user-select: none;
         position: relative;
         width: $task_width;
         z-index: 1;

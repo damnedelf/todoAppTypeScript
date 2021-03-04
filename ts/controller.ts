@@ -1,6 +1,7 @@
 StoreTodos.getAll()
   .then((result) => View.printTodos(result))
-  .then(() => View.filter(StoreFilterStatus.getFilterStatus()));
+  .then(() => View.filter(StoreFilterStatus.getFilterStatus()))
+  .then(() => handleDD());
 
 emitter.subscribe(`event:onEnter`, function (name: string) {
   let todo = new TodoModel(name);

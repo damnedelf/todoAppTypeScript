@@ -1,13 +1,8 @@
 "use strict";
-// async function buildDom() {
-//   let todosArray: todoObj[] = await StoreTodos.getAll();
-//   await View.printTodos(todosArray);
-//   await View.filter(StoreFilterStatus.getFilterStatus());
-// }
-// buildDom();
 StoreTodos.getAll()
     .then((result) => View.printTodos(result))
-    .then(() => View.filter(StoreFilterStatus.getFilterStatus()));
+    .then(() => View.filter(StoreFilterStatus.getFilterStatus()))
+    .then(() => handleDD());
 emitter.subscribe(`event:onEnter`, function (name) {
     let todo = new TodoModel(name);
     View.printTodo(todo);

@@ -35,7 +35,6 @@ class StoreTodos {
                 });
             }
             yield getallHandler();
-            console.log(todoArray);
             return todoArray;
         });
     }
@@ -71,8 +70,6 @@ class StoreTodos {
                     .get()
                     .then(function (querySnapshot) {
                     querySnapshot.forEach(function (doc) {
-                        console.log(`doc type :${typeof doc}`);
-                        console.log(`query snapshot type :${typeof querySnapshot}`);
                         doc.ref.update({
                             isCompleted: status,
                         });
@@ -81,7 +78,6 @@ class StoreTodos {
             });
         }
         patchAllTodo().catch((error) => console.log(error));
-        console.log("here");
     }
 }
 class StoreFilterStatus {
